@@ -52,11 +52,14 @@
     flex:0 0 330px;
     height:100vh;
     overflow-y:auto;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
     padding:60px 44px;
     display:flex;
     flex-direction:column;
     gap:22px;
   }
+  .sidebar::-webkit-scrollbar{ display:none; }
   .avatar{
     width:168px;
     height:168px;
@@ -94,7 +97,9 @@
   .side-email:hover{ color:var(--accent); }
 
   /* ---------- Main content ---------- */
-  main{ flex:1; min-width:0; padding:60px 60px 100px; max-width:700px; }
+  #about p{ font-size:14px; text-align:justify; max-width:none; }
+
+  main{ flex:1; min-width:0; padding:60px 60px 100px; max-width:800px; }
   section{ padding-bottom:90px; scroll-margin-top:30px; }
 
   .section-heading{ display:flex; align-items:center; gap:20px; margin-bottom:32px; }
@@ -122,8 +127,7 @@
   }
   .pub:last-of-type{ margin-bottom:0; }
   .pub .num{ font-family:var(--mono); color:var(--accent); font-size:.95rem; flex:0 0 auto; width:1.4em; padding-top:2px; }
-  .pub-fig{ flex:0 0 auto; width:84px; height:56px; }
-  .pub-fig path{ fill:none; stroke:var(--accent); stroke-width:1.8; }
+  .pub-fig{ flex:0 0 auto; width:84px; height:56px; object-fit:cover; border-radius:4px; border:1px solid var(--lightest-navy); }
   .pub .body p{ color:var(--lightest-slate); margin:0 0 5px; font-size:15.5px; }
   .pub .venue{ color:var(--slate); font-size:14.5px; }
   .pub .doi{ font-family:var(--mono); font-size:12.5px; color:var(--slate); }
@@ -159,6 +163,13 @@
   .entry .when{ font-family:var(--mono); font-size:12.5px; color:var(--accent); display:block; margin-bottom:3px; }
   .entry .what{ font-weight:600; color:var(--lightest-slate); }
   .entry .where{ color:var(--slate); font-size:15px; }
+
+  .link-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
+  .link-list a{
+    font-family:var(--mono); font-size:14.5px; color:var(--lightest-slate);
+    border-bottom:1px solid rgba(79,216,196,0.25);
+  }
+  .link-list a:hover{ color:var(--accent); border-bottom-color:var(--accent); }
 
   .contact-cta{ text-align:left; }
   .contact-cta p{ font-size:15.5px; }
@@ -201,16 +212,12 @@
         <li><a href="#experience"><span class="num">04.</span> Experience</a></li>
         <li><a href="#education"><span class="num">05.</span> Education</a></li>
         <li><a href="#skills"><span class="num">06.</span> Skills</a></li>
-        <li><a href="#contact"><span class="num">07.</span> Contact</a></li>
+        <li><a href="#links"><span class="num">07.</span> Important Links</a></li>
+        <li><a href="#contact"><span class="num">08.</span> Contact</a></li>
       </ol>
     </nav>
 
-    <ul class="social-icons">
-      <li><a href="mailto:tsifullaht@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a></li>
-      <li><a href="https://scholar.google.com/citations?user=dAgMZWwAAAAJ" target="_blank" rel="noopener" aria-label="Google Scholar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></a></li>
-      <li><a href="https://www.researchgate.net/profile/Tokey-Sifullah" target="_blank" rel="noopener" aria-label="ResearchGate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 16V9h3.2a2.2 2.2 0 010 4.4H9M13 13l3 3"/></svg></a></li>
-      <li><a href="cv.pdf" aria-label="Download CV"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg></a></li>
-    </ul>
+  
   </header>
 
   <main>
@@ -240,9 +247,7 @@
 
       <a class="pub card" href="https://doi.org/10.1016/j.asr.2026.09.001" target="_blank" rel="noopener">
         <span class="num">1.</span>
-        <svg class="pub-fig" viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M0,44 C20,44 26,14 42,14 C58,14 62,44 78,44 C90,44 94,24 108,24 C122,24 126,44 138,44 C154,44 160,10 178,10 C196,10 200,44 220,44" />
-        </svg>
+        <img class="pub-fig" src="pub1.jpg" alt="Figure from publication 1">
         <div class="body">
           <p>Islam, M.A., Tanjil, T.S. &amp; Hafez, M.G. (2026). Cylindrical and spherical propagation of ion-acoustic overtaking multi-wave structures in the upper ionosphere of Venus.</p>
           <p class="venue">Advances in Space Research</p>
@@ -253,9 +258,7 @@
 
       <a class="pub card" href="https://doi.org/10.1038/s41598-026-57659-z" target="_blank" rel="noopener">
         <span class="num">2.</span>
-        <svg class="pub-fig" viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M0,30 C11,10 22,10 33,30 C44,50 55,50 66,30 C77,10 88,10 99,30 C110,50 121,50 132,30 C143,10 154,10 165,30 C176,50 187,50 198,30 C204,20 210,20 220,30" />
-        </svg>
+        <img class="pub-fig" src="pub2.jpg" alt="Figure from publication 2">
         <div class="body">
           <p>Akter, S., Tanjil, T.S. &amp; Hafez, M.G. (2026). Interacting dust-acoustic multi-soliton and periodic waves in strongly coupled dusty plasma with ion-drag force.</p>
           <p class="venue">Scientific Reports, 16, 28115</p>
@@ -266,9 +269,7 @@
 
       <a class="pub card" href="https://doi.org/10.1016/j.asr.2025.12.043" target="_blank" rel="noopener">
         <span class="num">3.</span>
-        <svg class="pub-fig" viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M0,40 C30,40 35,44 50,44 C68,44 72,8 95,8 C118,8 122,44 140,44 C155,44 160,16 178,16 C196,16 200,40 220,40" />
-        </svg>
+        <img class="pub-fig" src="pub3.jpg" alt="Figure from publication 3">
         <div class="body">
           <p>Akter, S., Tanjil, T.S. &amp; Hafez, M.G. (2026). Propagation and interaction of ion-acoustic single, N-solitons, and periodic waves in Venus' upper ionosphere.</p>
           <p class="venue">Advances in Space Research, 77(4), 5236–5253</p>
@@ -346,10 +347,20 @@
       <ul class="interest-list"><li>LaTeX</li><li>Adobe Photoshop</li><li>Adobe Illustrator</li></ul>
     </section>
 
+    <section id="links">
+      <div class="section-heading"><span class="num">07.</span><h2>Important Links</h2><span class="rule"></span></div>
+      <ul class="link-list">
+        <li><a href="https://scholar.google.com/citations?user=dAgMZWwAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+        <li><a href="https://www.researchgate.net/profile/Tokey-Sifullah" target="_blank" rel="noopener">ResearchGate</a></li>
+        <li><a href="mailto:tsifullaht@gmail.com">tsifullaht@gmail.com</a></li>
+        <li><a href="cv.pdf">CV (PDF)</a></li>
+      </ul>
+    </section>
+
     <section id="contact">
-      <div class="section-heading"><span class="num">07.</span><h2>Contact</h2><span class="rule"></span></div>
+      <div class="section-heading"><span class="num">08.</span><h2>Contact</h2><span class="rule"></span></div>
       <div class="contact-cta">
-        <p>Based in Dhaka, Bangladesh. Reach out by email, or find more at Google Scholar and ResearchGate.</p>
+        <p>Based in Dhaka, Bangladesh. Feel free to reach out directly.</p>
         <a class="btn" href="mailto:tsifullaht@gmail.com">Say Hello</a>
       </div>
     </section>
