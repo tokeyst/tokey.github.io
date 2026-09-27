@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tokey Sifullah Tanjil — Applied Mathematician</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F5EF;
+    --ink:#1B2430;
+    --ink-soft:#4A5567;
+    --teal:#1F6F78;
+    --brass:#9C7A2E;
+    --rule:#DAD5C8;
+    --paper-raised:#FFFEFB;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', -apple-system, sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2{
+    font-family:'Newsreader', Georgia, serif;
+    font-weight:500;
+    color:var(--ink);
+    margin:0;
+  }
+  .wrap{
+    max-width:680px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  nav{
+    padding:28px 0 0;
+  }
+  nav .wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    font-size:14.5px;
+  }
+  nav a{
+    color:var(--ink-soft);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  nav a:hover, nav a:focus-visible{
+    color:var(--teal);
+    border-bottom-color:var(--teal);
+  }
+  header.hero{
+    padding:56px 0 8px;
+  }
+  header.hero h1{
+    font-size:2.6rem;
+    letter-spacing:-0.01em;
+  }
+  header.hero p.role{
+    margin:14px 0 0;
+    max-width:52ch;
+    color:var(--ink-soft);
+    font-size:1.05rem;
+  }
+  .wave{
+    display:block;
+    width:100%;
+    height:auto;
+    margin:34px 0 6px;
+  }
+  .wave path{
+    fill:none;
+    stroke:var(--teal);
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-dasharray:1400;
+    stroke-dashoffset:1400;
+    animation:draw 2.2s ease-out forwards;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .wave path{animation:none; stroke-dashoffset:0;}
+  }
+  @keyframes draw{ to { stroke-dashoffset:0; } }
+
+  .links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 22px;
+    margin:18px 0 0;
+    padding:0;
+    list-style:none;
+    font-size:15px;
+  }
+  .links a{
+    color:var(--teal);
+    text-decoration:none;
+    border-bottom:1px solid rgba(31,111,120,0.35);
+  }
+  .links a:hover, .links a:focus-visible{ border-bottom-color:var(--teal); }
+
+  section{
+    padding:44px 0;
+    border-top:1px solid var(--rule);
+  }
+  section h2{
+    font-size:1.5rem;
+    margin-bottom:18px;
+  }
+  section p{ margin:0 0 14px; max-width:66ch; }
+  section p:last-child{ margin-bottom:0; }
+
+  .interest-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    padding:0;
+    margin:0;
+    list-style:none;
+  }
+  .interest-list li{
+    background:var(--paper-raised);
+    border:1px solid var(--rule);
+    padding:7px 14px;
+    border-radius:3px;
+    font-size:14.5px;
+    color:var(--ink-soft);
+  }
+
+  .pub{
+    display:flex;
+    gap:14px;
+    margin-bottom:20px;
+    align-items:baseline;
+  }
+  .pub:last-child{ margin-bottom:0; }
+  .pub .num{
+    font-family:'Newsreader', serif;
+    color:var(--brass);
+    font-size:1.1rem;
+    flex:0 0 auto;
+    width:1.3em;
+  }
+  .pub .body p{ margin:0 0 4px; }
+  .pub .venue{ color:var(--ink-soft); font-size:15px; }
+  .pub .doi{ font-size:13.5px; color:var(--ink-soft); }
+  .pub .doi a{ color:var(--teal); }
+
+  .subgroup{ margin-top:26px; }
+  .subgroup h3{
+    font-family:'IBM Plex Sans';
+    font-weight:600;
+    font-size:14.5px;
+    color:var(--ink-soft);
+    margin:0 0 10px;
+  }
+  .subgroup ul{ margin:0; padding-left:18px; }
+  .subgroup li{ margin-bottom:8px; font-size:15.5px; }
+
+  .entry{
+    margin-bottom:22px;
+  }
+  .entry:last-child{ margin-bottom:0; }
+  .entry .when{
+    font-size:13.5px;
+    color:var(--brass);
+    display:block;
+    margin-bottom:2px;
+  }
+  .entry .what{
+    font-weight:500;
+  }
+  .entry .where{
+    color:var(--ink-soft);
+    font-size:15px;
+  }
+
+  .contact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 28px;
+    margin-top:8px;
+  }
+  .contact-row a{ color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(31,111,120,0.35); }
+
+  footer{
+    padding:36px 0 60px;
+    color:var(--ink-soft);
+    font-size:13.5px;
+    border-top:1px solid var(--rule);
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:2px;
+  }
+
+  @media (max-width:480px){
+    header.hero h1{ font-size:2.1rem; }
+    body{ font-size:16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Tokey Sifullah Tanjil</h1>
+    <p class="role">An applied mathematician based in Dhaka, Bangladesh, working on nonlinear waves, plasma dynamics, and computational neuroscience. Currently applying for PhD positions abroad.</p>
+
+    <svg class="wave" viewBox="0 0 800 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0,78 C110,78 150,18 250,18 C350,18 370,78 420,78 C460,78 480,42 560,42 C630,42 650,78 800,78" />
+    </svg>
+
+    <ul class="links">
+      <li><a href="mailto:tsifullaht@gmail.com">Email</a></li>
+      <li><a href="https://scholar.google.com/citations?user=dAgMZWwAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+      <li><a href="https://www.researchgate.net/profile/Tokey-Sifullah" target="_blank" rel="noopener">ResearchGate</a></li>
+      <li><a href="cv.pdf">CV (PDF)</a></li>
+    </ul>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <p>I started doing research in the third year of my BSc, building a compartmental model for dengue transmission under Professor Dr. Mohammed Aman Ullah — my first exposure to nonlinear ODEs, equilibrium analysis, and numerical work in MATLAB and Python.</p>
+    <p>In my Master's, I moved into plasma physics with Assistant Professor Shahrina Akter, learning Maple from scratch to study ion-acoustic wave propagation in Venus' upper ionosphere, and later the head-on collision of dust-acoustic solitary waves in dusty plasma. I picked up LaTeX along the way to write up the results.</p>
+    <p>I'm now a Research Assistant at CUET under Prof. Dr. M. G. Hafez, working on a completely different field again: a fractal-fractional hybrid neuron-network model for neurodegenerative disease progression, combining Hodgkin–Huxley dynamics with Wilson–Cowan mean-field theory. Along the way I've also helped train other Master's, MPhil, and PhD students in the lab.</p>
+    <p>The common thread across epidemiology, plasma physics, and now computational neuroscience is that I've been able to pick up the tools a new field needs quickly enough to contribute, and then pass that on to others. That's part of why I'm comfortable applying for a PhD without narrowing to one subfield in advance — though I'd also be glad to move further into machine learning and data-driven modelling given the chance.</p>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <h2>Research interests</h2>
+    <ul class="interest-list">
+      <li>Nonlinear waves &amp; solitons</li>
+      <li>Plasma physics &amp; fluid dynamics</li>
+      <li>Mathematical modelling</li>
+      <li>Nonlinear dynamical systems</li>
+      <li>Fractional-order differential equations</li>
+      <li>Computational neuroscience</li>
+      <li>Data-driven modelling &amp; machine learning</li>
+    </ul>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap">
+    <h2>Publications</h2>
+
+    <div class="pub">
+      <span class="num">1.</span>
+      <div class="body">
+        <p>Islam, M.A., Tanjil, T.S. &amp; Hafez, M.G. (2026). Cylindrical and spherical propagation of ion-acoustic overtaking multi-wave structures in the upper ionosphere of Venus.</p>
+        <p class="venue">Advances in Space Research</p>
+        <p class="doi"><a href="https://doi.org/10.1016/j.asr.2026.09.001" target="_blank" rel="noopener">doi.org/10.1016/j.asr.2026.09.001</a></p>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="num">2.</span>
+      <div class="body">
+        <p>Akter, S., Tanjil, T.S. &amp; Hafez, M.G. (2026). Interacting dust-acoustic multi-soliton and periodic waves in strongly coupled dusty plasma with ion-drag force.</p>
+        <p class="venue">Scientific Reports, 16, 28115</p>
+        <p class="doi"><a href="https://doi.org/10.1038/s41598-026-57659-z" target="_blank" rel="noopener">doi.org/10.1038/s41598-026-57659-z</a></p>
+      </div>
+    </div>
+
+    <div class="pub">
+      <span class="num">3.</span>
+      <div class="body">
+        <p>Akter, S., Tanjil, T.S. &amp; Hafez, M.G. (2026). Propagation and interaction of ion-acoustic single, N-solitons, and periodic waves in Venus' upper ionosphere.</p>
+        <p class="venue">Advances in Space Research, 77(4), 5236–5253</p>
+        <p class="doi"><a href="https://doi.org/10.1016/j.asr.2025.12.043" target="_blank" rel="noopener">doi.org/10.1016/j.asr.2025.12.043</a></p>
+      </div>
+    </div>
+
+    <div class="subgroup">
+      <h3>Working papers &amp; in progress</h3>
+      <ul>
+        <li>A Fractal-Fractional Hybrid Neuron-Network Model for Neurodegenerative Disease Progression: Merging Hodgkin–Huxley Dynamics with Wilson–Cowan Mean-Field Theory — in progress, CUET.</li>
+        <li>Mathematical Model for Dengue Transmission: A Comparative Study for Urban and Rural Areas in Bangladesh — presented at AMSE-2025.</li>
+        <li>The Head-on Collision in Dust-Acoustic Solitary Waves in an Unmagnetized Dusty Plasma with Trapped Ion Distribution — in preparation.</li>
+      </ul>
+    </div>
+
+    <div class="subgroup">
+      <h3>Conference presentations</h3>
+      <ul>
+        <li>4th International Conference on Applied Mathematics in Science and Engineering (AMSE-2025), India — Aug 2025.</li>
+        <li>24th International Mathematics Conference (24IMC 2025), Bangladesh — Dec 2025.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <span class="when">Dec 2025 – Present</span>
+      <div class="what">Research Assistant, Chittagong University of Science and Technology (CUET)</div>
+      <div class="where">Under Prof. Dr. M. G. Hafez, on a fractal-fractional neuron-network model for neurodegenerative disease progression.</div>
+    </div>
+
+    <div class="entry">
+      <span class="when">Nov 2025 – Mar 2026</span>
+      <div class="what">Research Assistant, University of Chittagong</div>
+      <div class="where">Under Assistant Prof. Shahrina Akter, on dust-acoustic solitary wave collisions in dusty plasma.</div>
+    </div>
+
+    <div class="entry">
+      <span class="when">Sep 2023 – Jan 2024</span>
+      <div class="what">Teaching Assistant (Intern), Katirhat Mohila Degree College, Hathazari, Chittagong</div>
+      <div class="where">Taught HSC first-year students and Business Mathematics for the Management Department.</div>
+    </div>
+
+    <div class="entry">
+      <span class="when">Nov 2022</span>
+      <div class="what">Associate Editor, Competitive Math Booster</div>
+      <div class="where">A mathematics reference book for the BCS competitive examination.</div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+
+    <div class="entry">
+      <span class="when">2022 (result published 2025)</span>
+      <div class="what">M.Sc. in Applied Mathematics</div>
+      <div class="where">University of Chittagong — CGPA 3.73/4.00, 1st Class, 2nd Position</div>
+    </div>
+
+    <div class="entry">
+      <span class="when">2021</span>
+      <div class="what">B.Sc. (Honours) in Mathematics</div>
+      <div class="where">University of Chittagong — CGPA 3.48/4.00</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p>Dhaka, Bangladesh</p>
+    <div class="contact-row">
+      <a href="mailto:tsifullaht@gmail.com">tsifullaht@gmail.com</a>
+      <a href="https://scholar.google.com/citations?user=dAgMZWwAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://www.researchgate.net/profile/Tokey-Sifullah" target="_blank" rel="noopener">ResearchGate</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Tokey Sifullah Tanjil
+  </div>
+</footer>
+
+</body>
+</html>
