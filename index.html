@@ -22,7 +22,11 @@
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:var(--paper);
+    background-color:var(--paper);
+    background-image:
+      linear-gradient(rgba(31,111,120,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(31,111,120,0.05) 1px, transparent 1px);
+    background-size:36px 36px;
     color:var(--ink);
     font-family:'IBM Plex Sans', -apple-system, sans-serif;
     font-size:17px;
@@ -60,6 +64,21 @@
   }
   header.hero{
     padding:56px 0 8px;
+  }
+  .hero-top{
+    display:flex;
+    gap:26px;
+    align-items:flex-start;
+    flex-wrap:wrap;
+  }
+  .avatar{
+    width:112px;
+    height:112px;
+    border-radius:50%;
+    object-fit:cover;
+    flex:0 0 auto;
+    border:3px solid var(--paper-raised);
+    box-shadow:0 0 0 1px var(--rule);
   }
   header.hero h1{
     font-size:2.6rem;
@@ -224,8 +243,13 @@
 
 <header class="hero">
   <div class="wrap">
-    <h1>Tokey Sifullah Tanjil</h1>
-    <p class="role">An applied mathematician based in Dhaka, Bangladesh, working on nonlinear waves, plasma dynamics, and computational neuroscience. Currently applying for PhD positions abroad.</p>
+    <div class="hero-top">
+      <img src="photo.jpg" alt="Tokey Sifullah Tanjil" class="avatar">
+      <div>
+        <h1>Tokey Sifullah Tanjil</h1>
+        <p class="role">An applied mathematician based in Dhaka, Bangladesh, working on nonlinear waves, plasma dynamics, and computational neuroscience. Currently applying for PhD positions abroad.</p>
+      </div>
+    </div>
 
     <svg class="wave" viewBox="0 0 800 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M0,78 C110,78 150,18 250,18 C350,18 370,78 420,78 C460,78 480,42 560,42 C630,42 650,78 800,78" />
