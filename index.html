@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tokey Sifullah Tanjil — Applied Mathematician</title>
 <meta name="google-site-verification" content="hfWrPwQb-TDru_CsdWd3CK1TnCTB4SjWTJGuEOG8WEc" />
+<meta name="description" content="Tokey Sifullah Tanjil is an applied mathematician working on nonlinear waves, plasma dynamics, and computational neuroscience, currently applying for PhD positions abroad.">
+<meta property="og:title" content="Tokey Sifullah Tanjil — Applied Mathematician">
+<meta property="og:description" content="Research in nonlinear waves, plasma dynamics, and computational neuroscience.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tokeyst.github.io/">
+<meta property="og:image" content="https://tokeyst.github.io/photo.jpg">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -45,8 +52,16 @@
     padding:0 24px;
   }
   nav{
-    padding:28px 0 0;
+    position:sticky;
+    top:0;
+    z-index:10;
+    padding:16px 0;
+    background:rgba(247,245,239,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid transparent;
+    transition:border-color .2s ease;
   }
+  nav.scrolled{ border-bottom-color:var(--rule); }
   nav .wrap{
     display:flex;
     flex-wrap:wrap;
@@ -57,8 +72,9 @@
     color:var(--ink-soft);
     text-decoration:none;
     border-bottom:1px solid transparent;
+    padding-bottom:2px;
   }
-  nav a:hover, nav a:focus-visible{
+  nav a:hover, nav a:focus-visible, nav a.active{
     color:var(--teal);
     border-bottom-color:var(--teal);
   }
@@ -125,6 +141,34 @@
     border-bottom:1px solid rgba(31,111,120,0.35);
   }
   .links a:hover, .links a:focus-visible{ border-bottom-color:var(--teal); }
+
+  .stats{
+    display:flex;
+    gap:0;
+    margin:38px 0 0;
+    padding:0;
+    list-style:none;
+    max-width:520px;
+  }
+  .stats li{
+    flex:1;
+    padding:0 22px;
+    border-left:1px solid var(--rule);
+  }
+  .stats li:first-child{ padding-left:0; border-left:none; }
+  .stats .n{
+    display:block;
+    font-family:'Newsreader', serif;
+    font-size:1.7rem;
+    color:var(--ink);
+    line-height:1.1;
+  }
+  .stats .l{
+    display:block;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin-top:3px;
+  }
 
   section{
     padding:44px 0;
@@ -202,6 +246,38 @@
     font-size:15px;
   }
 
+  .timeline{
+    position:relative;
+    margin:0;
+    padding-left:26px;
+    list-style:none;
+    border-left:2px solid var(--rule);
+  }
+  .timeline li{
+    position:relative;
+    padding-bottom:28px;
+  }
+  .timeline li:last-child{ padding-bottom:0; }
+  .timeline li::before{
+    content:'';
+    position:absolute;
+    left:-32px;
+    top:5px;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:var(--paper);
+    border:2px solid var(--teal);
+  }
+  .timeline .when{
+    font-size:13.5px;
+    color:var(--brass);
+    display:block;
+    margin-bottom:2px;
+  }
+  .timeline .what{ font-weight:500; }
+  .timeline .where{ color:var(--ink-soft); font-size:15px; }
+
   .contact-row{
     display:flex;
     flex-wrap:wrap;
@@ -225,18 +301,21 @@
   @media (max-width:480px){
     header.hero h1{ font-size:2.1rem; }
     body{ font-size:16px; }
+    .stats{ flex-wrap:wrap; gap:14px 0; }
+    .stats li{ flex:1 1 33%; padding:0 14px; }
   }
 </style>
 </head>
 <body>
 
-<nav>
+<nav id="site-nav">
   <div class="wrap">
     <a href="#about">About</a>
     <a href="#research">Research</a>
     <a href="#publications">Publications</a>
     <a href="#experience">Experience</a>
     <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -260,6 +339,12 @@
       <li><a href="https://scholar.google.com/citations?user=dAgMZWwAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
       <li><a href="https://www.researchgate.net/profile/Tokey-Sifullah" target="_blank" rel="noopener">ResearchGate</a></li>
       <li><a href="cv.pdf">CV (PDF)</a></li>
+    </ul>
+
+    <ul class="stats">
+      <li><span class="n">3</span><span class="l">Publications</span></li>
+      <li><span class="n">2</span><span class="l">Conference talks</span></li>
+      <li><span class="n">7</span><span class="l">Research areas</span></li>
     </ul>
   </div>
 </header>
@@ -343,29 +428,28 @@
   <div class="wrap">
     <h2>Experience</h2>
 
-    <div class="entry">
-      <span class="when">Dec 2025 – Present</span>
-      <div class="what">Research Assistant, Chittagong University of Science and Technology (CUET)</div>
-      <div class="where">Under Prof. Dr. M. G. Hafez, on a fractal-fractional neuron-network model for neurodegenerative disease progression.</div>
-    </div>
-
-    <div class="entry">
-      <span class="when">Nov 2025 – Mar 2026</span>
-      <div class="what">Research Assistant, University of Chittagong</div>
-      <div class="where">Under Assistant Prof. Shahrina Akter, on dust-acoustic solitary wave collisions in dusty plasma.</div>
-    </div>
-
-    <div class="entry">
-      <span class="when">Sep 2023 – Jan 2024</span>
-      <div class="what">Teaching Assistant (Intern), Katirhat Mohila Degree College, Hathazari, Chittagong</div>
-      <div class="where">Taught HSC first-year students and Business Mathematics for the Management Department.</div>
-    </div>
-
-    <div class="entry">
-      <span class="when">Nov 2022</span>
-      <div class="what">Associate Editor, Competitive Math Booster</div>
-      <div class="where">A mathematics reference book for the BCS competitive examination.</div>
-    </div>
+    <ul class="timeline">
+      <li>
+        <span class="when">Dec 2025 – Present</span>
+        <div class="what">Research Assistant, Chittagong University of Science and Technology (CUET)</div>
+        <div class="where">Under Prof. Dr. M. G. Hafez, on a fractal-fractional neuron-network model for neurodegenerative disease progression.</div>
+      </li>
+      <li>
+        <span class="when">Nov 2025 – Mar 2026</span>
+        <div class="what">Research Assistant, University of Chittagong</div>
+        <div class="where">Under Assistant Prof. Shahrina Akter, on dust-acoustic solitary wave collisions in dusty plasma.</div>
+      </li>
+      <li>
+        <span class="when">Sep 2023 – Jan 2024</span>
+        <div class="what">Teaching Assistant (Intern), Katirhat Mohila Degree College, Hathazari, Chittagong</div>
+        <div class="where">Taught HSC first-year students and Business Mathematics for the Management Department.</div>
+      </li>
+      <li>
+        <span class="when">Nov 2022</span>
+        <div class="what">Associate Editor, Competitive Math Booster</div>
+        <div class="where">A mathematics reference book for the BCS competitive examination.</div>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -383,6 +467,30 @@
       <span class="when">2021</span>
       <div class="what">B.Sc. (Honours) in Mathematics</div>
       <div class="where">University of Chittagong — CGPA 3.48/4.00</div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="subgroup" style="margin-top:0;">
+      <h3>Mathematical software</h3>
+      <ul class="interest-list">
+        <li>Maple</li><li>MATLAB</li><li>Mathematica</li>
+      </ul>
+    </div>
+    <div class="subgroup">
+      <h3>Programming</h3>
+      <ul class="interest-list">
+        <li>Python</li><li>Fortran</li><li>C++</li>
+      </ul>
+    </div>
+    <div class="subgroup">
+      <h3>Typesetting &amp; design</h3>
+      <ul class="interest-list">
+        <li>LaTeX</li><li>Adobe Photoshop</li><li>Adobe Illustrator</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -405,5 +513,26 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var nav = document.getElementById('site-nav');
+  var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
+  var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+
+  function onScroll(){
+    nav.classList.toggle('scrolled', window.scrollY > 8);
+    var pos = window.scrollY + 90;
+    var current = sections[0];
+    sections.forEach(function(sec){
+      if(sec && sec.offsetTop <= pos) current = sec;
+    });
+    links.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
 </body>
 </html>
